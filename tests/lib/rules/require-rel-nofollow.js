@@ -49,11 +49,13 @@ let ValidOptions=[
 let InvalidOptions=[
   {
     filename: 'test.vue',
-    code: '<template><a href="https://google.com/index"></a></template>'
+    code: '<template><a href="https://google.com/index"></a></template>',
+    output: `<template><a href="https://google.com/index" rel='nofollow'></a></template>`
   },
   {
     filename: 'test.vue',
-    code: '<template><a href="https://google.com/index" rel="noopener"></a></template>'
+    code: '<template><a href="https://google.com/index" rel="noopener"></a></template>',
+    output:'<template><a href="https://google.com/index" rel="noopener nofollow" ></a></template>'
   },
 ]
 ValidOptions=ValidOptions.map(item=>{
